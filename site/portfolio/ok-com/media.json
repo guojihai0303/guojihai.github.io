@@ -1,0 +1,22 @@
+{
+  "source_sha256": "d9465c866c749c62c2601ba418f93010ae4508444475b95081722da00283563a",
+  "source_width": 2000,
+  "source_height": 11260,
+  "tiles": [
+    {
+      "src": "/portfolio/ok-com/board-01.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/ok-com/board-02.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/ok-com/board-03.webp",
+      "width": 1600,
+      "height": 2608
+    }
+  ]
+}

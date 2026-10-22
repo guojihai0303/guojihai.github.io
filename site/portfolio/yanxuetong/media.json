@@ -1,0 +1,52 @@
+{
+  "source_sha256": "bc8a258bd5b384c481caa2d67520bdfbb688f51f90340a5218aca6d04059fcd0",
+  "source_width": 2000,
+  "source_height": 32223,
+  "tiles": [
+    {
+      "src": "/portfolio/yanxuetong/board-01.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-02.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-03.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-04.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-05.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-06.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-07.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-08.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/yanxuetong/board-09.webp",
+      "width": 1600,
+      "height": 178
+    }
+  ]
+}

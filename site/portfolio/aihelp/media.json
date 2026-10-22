@@ -1,0 +1,62 @@
+{
+  "source_sha256": "bc383abfe7e3403531931372e49384d03073f051c468fd7be24e3b0ab54e05e4",
+  "source_width": 2000,
+  "source_height": 43693,
+  "tiles": [
+    {
+      "src": "/portfolio/aihelp/board-01.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-02.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-03.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-04.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-05.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-06.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-07.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-08.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-09.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-10.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/portfolio/aihelp/board-11.webp",
+      "width": 1600,
+      "height": 2954
+    }
+  ]
+}
