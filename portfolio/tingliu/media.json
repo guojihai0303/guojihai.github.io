@@ -1,0 +1,32 @@
+{
+  "source_sha256": "6ec7f7244579e2628b5813683747d0ece394820a0ec6ec4c0621c2546464f039",
+  "source_width": 2000,
+  "source_height": 18363,
+  "tiles": [
+    {
+      "src": "/guojihai.github.io/portfolio/tingliu/board-01.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/tingliu/board-02.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/tingliu/board-03.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/tingliu/board-04.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/tingliu/board-05.webp",
+      "width": 1600,
+      "height": 1890
+    }
+  ]
+}

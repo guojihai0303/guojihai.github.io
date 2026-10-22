@@ -1,357 +1,102 @@
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UI体验设计师作品集 | 郭济海</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-DD-k0QuH.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CK9b4eq-.css">
-  </head>
-  <body class="dark">
-    <div id="root"></div>
-  
-          <script>
-            (function() {
-              'use strict';
-              
-              if (window.TraeBadgePlugin) return;
-              
-              const css = `
-.trae-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-sizing: border-box;
-  border-radius: 6px;
-  position: fixed;
-  padding: 8px 8px 8px 10px;
-  height: 28px;
-  width: 130px;
-  z-index: 9999;
-}
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/guojihai.github.io/img/guojihai-portrait.png"/><link rel="stylesheet" href="/guojihai.github.io/_next/static/chunks/2yz5dcjgcyn54.css" data-precedence="next"/><link rel="stylesheet" href="/guojihai.github.io/_next/static/chunks/1tmnbd_m4q4gk.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/guojihai.github.io/_next/static/chunks/0k-ck4py_oqx6.js"/><script src="/guojihai.github.io/_next/static/chunks/2kqrbujyxigm8.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/0iec5q4ack_04.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/42_lucty-7pl_.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/turbopack-2vpgp1diz5lff.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/31w90vyaxe_4q.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/0_jd8xb21751d.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/3v38rxbik4q2p.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/44yc3rrrxvbae.js" async=""></script><script src="/guojihai.github.io/_next/static/chunks/15nh0e2k5nwqq.js" async=""></script><title>郭济海 · 资深 UI/UX 体验设计师</title><meta name="description" content="10 年以上 UI/UX 设计经验，专注设计系统、AI 产品体验与从 0 到 1 的产品设计。"/><meta name="robots" content="index, follow, noimageindex"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3C%2Fsvg%3E"/><script>
+  (() => {
+    const root = document.documentElement;
 
-.trae-badge:hover.trae-badge--light {
-  background-color: #EDEFF2;
-}
+    try {
+      const savedTheme = localStorage.getItem("hero-theme-override");
+      const isDark = savedTheme === "dark"
+        ? true
+        : savedTheme === "light"
+          ? false
+          : new Date().getHours() >= 18 || new Date().getHours() < 8;
 
-.trae-badge:hover.trae-badge--dark {
-  background-color: #2A2D31;
-}
+      root.classList.toggle("dark", isDark);
+      root.classList.toggle("light", !isDark);
+    } catch {
+      root.classList.add("light");
+    }
 
-.trae-badge-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
+    const syncBackdrop = () => {
+      let progress = 0;
 
-.trae-badge-logo {
-  flex-shrink: 0;
-}
+      try {
+        const savedProgress = Number.parseFloat(
+          sessionStorage.getItem("reggy-backdrop-progress") || "0",
+        );
+        if (Number.isFinite(savedProgress)) progress = savedProgress;
+      } catch {}
 
-.trae-badge-share {
-  flex-shrink: 0;
-  color: rgba(78, 82, 87, 1);
-}
+      if (window.scrollY > 0 && window.innerHeight > 0) {
+        const raw = Math.min(
+          1,
+          Math.max(0, (window.scrollY / window.innerHeight - 0.18) / 0.6),
+        );
+        progress = raw * raw * (3 - 2 * raw);
+      }
 
-.trae-badge:hover.trae-badge--light .trae-badge-share {
-  color: rgba(38, 41, 44, 1);
-}
+      root.style.setProperty(
+        "--initial-backdrop-opacity",
+        String(Math.min(1, Math.max(0, progress))),
+      );
+    };
 
-.trae-badge:hover.trae-badge--dark .trae-badge-share {
-  color: #D1D3DB;
-}
-
-.trae-badge-cancel {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 10001;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000000;
-}
-
-.trae-badge:hover .trae-badge-cancel {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* 在移动端设备上始终显示取消按钮 */
-@media (hover: none) and (pointer: coarse) {
-  .trae-badge-cancel {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-}
-
-.trae-badge--light {
-  background-color: rgba(255, 255, 255, 1);
-  color: #ffffff;
-  box-shadow: 0px 0px 0.5px 0px rgba(0, 0, 0, 0.12), 0px 1px 3px 0px rgba(0, 0, 0, 0.08), 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
-}
-
-.trae-badge--dark {
-  background-color: #000000;
-  color: #ffffff;
-  box-shadow: 0px 0px 0.5px 0px rgba(0, 0, 0, 0.12), 0px 1px 3px 0px rgba(0, 0, 0, 0.08), 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
-}
-
-.trae-badge--bottom-right { bottom: 20px; right: 20px; }
-.trae-badge--bottom-left { bottom: 20px; left: 20px; }
-.trae-badge--top-right { top: 20px; right: 20px; }
-.trae-badge--top-left { top: 20px; left: 20px; }
-`;
-              const logos = {"light":"<svg width=\"92\" height=\"12\" viewBox=\"0 0 92 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_5805_55291)\">\n<g clip-path=\"url(#clip1_5805_55291)\">\n<path d=\"M15.1579 11.2121H2.6478V9.12821H0.562988V0.787872H15.1579V11.2121ZM2.6478 9.12821H13.073V2.87269H2.6478V9.12821ZM7.86092 5.96865L6.38672 7.44275L4.91261 5.96865L6.38672 4.49445L7.86092 5.96865ZM12.0306 5.96775L10.5564 7.44185L9.08233 5.96775L10.5564 4.49355L12.0306 5.96775Z\" fill=\"white\"/>\n</g>\n<g clip-path=\"url(#clip2_5805_55291)\">\n<path d=\"M28.0793 3.37087H25.142V10.6863H23.143V3.37087H20.2048V1.5047H28.0793V3.37087ZM55.4369 3.36808H50.3789V8.81641H55.4369V10.6835H48.3789V1.50092H55.4369V3.36808ZM34.1761 1.50092C36.4528 1.50092 37.1355 2.26109 37.1355 4.43355C37.1355 6.00363 36.6872 6.72417 35.4243 7.14483L37.1466 10.6817H34.9474L33.3569 7.38095H31.2204L31.2222 10.6817V10.6826H29.2583V1.50092H34.1761ZM47.4897 10.6826H45.3993L44.5662 8.50363H40.8449L40.0819 10.6826H37.9048L41.4232 1.5047H44.081L47.4897 10.6826ZM55.436 6.119L53.8697 7.59311L52.3955 6.119L53.8697 4.6448L55.436 6.119ZM41.4547 6.86439H44.0173L42.8578 3.54429H42.5985L41.4547 6.86439ZM31.2222 5.60883H33.8948V5.60793C34.5636 5.60793 35.07 5.38284 35.0701 4.79156V4.14581C35.0701 3.55449 34.5636 3.32934 33.8948 3.32934H31.2222V5.60883Z\" fill=\"white\"/>\n</g>\n</g>\n<path d=\"M65.0407 4.17188C65.0009 3.79972 64.8333 3.50994 64.5379 3.30256C64.2453 3.09517 63.8646 2.99148 63.3958 2.99148C63.0663 2.99148 62.7836 3.04119 62.5478 3.14062C62.312 3.24006 62.1316 3.375 62.0066 3.54545C61.8816 3.71591 61.8177 3.91051 61.8149 4.12926C61.8149 4.31108 61.856 4.46875 61.9384 4.60227C62.0237 4.7358 62.1387 4.84943 62.2836 4.94318C62.4285 5.03409 62.589 5.1108 62.7651 5.1733C62.9413 5.2358 63.1188 5.28835 63.2978 5.33097L64.116 5.53551C64.4455 5.61222 64.7623 5.71591 65.0663 5.84659C65.3731 5.97727 65.6472 6.14205 65.8887 6.34091C66.133 6.53977 66.3262 6.77983 66.4683 7.06108C66.6103 7.34233 66.6813 7.67187 66.6813 8.04972C66.6813 8.56108 66.5506 9.01136 66.2893 9.40057C66.0279 9.78693 65.6501 10.0895 65.1558 10.3082C64.6643 10.5241 64.0691 10.6321 63.3703 10.6321C62.6913 10.6321 62.1018 10.527 61.6018 10.3168C61.1046 10.1065 60.7154 9.79972 60.4342 9.39631C60.1558 8.9929 60.0052 8.50142 59.9825 7.92188H61.5379C61.5606 8.22585 61.6543 8.47869 61.8191 8.6804C61.9839 8.8821 62.1984 9.03267 62.4626 9.1321C62.7296 9.23153 63.0279 9.28125 63.3575 9.28125C63.7012 9.28125 64.0024 9.23011 64.2609 9.12784C64.5222 9.02273 64.7268 8.87784 64.8745 8.69318C65.0222 8.50568 65.0975 8.28693 65.1004 8.03693C65.0975 7.80966 65.0308 7.62216 64.9001 7.47443C64.7694 7.32386 64.5862 7.19886 64.3504 7.09943C64.1174 6.99716 63.8447 6.90625 63.5322 6.8267L62.5393 6.57102C61.8205 6.38636 61.2524 6.10653 60.8347 5.73153C60.42 5.35369 60.2126 4.85227 60.2126 4.22727C60.2126 3.71307 60.3518 3.26278 60.6302 2.87642C60.9114 2.49006 61.2935 2.19034 61.7765 1.97727C62.2595 1.76136 62.8063 1.65341 63.4171 1.65341C64.0364 1.65341 64.5791 1.76136 65.045 1.97727C65.5137 2.19034 65.8816 2.48722 66.1487 2.8679C66.4157 3.24574 66.5535 3.6804 66.562 4.17188H65.0407ZM75.8891 6.13636C75.8891 7.0767 75.7129 7.8821 75.3607 8.55256C75.0112 9.22017 74.534 9.73153 73.9288 10.0866C73.3266 10.4418 72.6433 10.6193 71.8791 10.6193C71.1149 10.6193 70.4303 10.4418 69.8252 10.0866C69.2229 9.72869 68.7456 9.21591 68.3933 8.5483C68.0439 7.87784 67.8692 7.07386 67.8692 6.13636C67.8692 5.19602 68.0439 4.39205 68.3933 3.72443C68.7456 3.05398 69.2229 2.54119 69.8252 2.18608C70.4303 1.83097 71.1149 1.65341 71.8791 1.65341C72.6433 1.65341 73.3266 1.83097 73.9288 2.18608C74.534 2.54119 75.0112 3.05398 75.3607 3.72443C75.7129 4.39205 75.8891 5.19602 75.8891 6.13636ZM74.2996 6.13636C74.2996 5.47443 74.1959 4.91619 73.9885 4.46165C73.784 4.00426 73.4999 3.65909 73.1362 3.42614C72.7726 3.19034 72.3536 3.07244 71.8791 3.07244C71.4047 3.07244 70.9857 3.19034 70.622 3.42614C70.2584 3.65909 69.9729 4.00426 69.7655 4.46165C69.5609 4.91619 69.4587 5.47443 69.4587 6.13636C69.4587 6.7983 69.5609 7.35795 69.7655 7.81534C69.9729 8.26989 70.2584 8.61506 70.622 8.85085C70.9857 9.08381 71.4047 9.20028 71.8791 9.20028C72.3536 9.20028 72.7726 9.08381 73.1362 8.85085C73.4999 8.61506 73.784 8.26989 73.9885 7.81534C74.1959 7.35795 74.2996 6.7983 74.2996 6.13636ZM77.3837 10.5V1.77273H78.9647V9.17472H82.8085V10.5H77.3837ZM91.6391 6.13636C91.6391 7.0767 91.4629 7.8821 91.1107 8.55256C90.7612 9.22017 90.284 9.73153 89.6788 10.0866C89.0766 10.4418 88.3933 10.6193 87.6291 10.6193C86.8649 10.6193 86.1803 10.4418 85.5752 10.0866C84.9729 9.72869 84.4956 9.21591 84.1433 8.5483C83.7939 7.87784 83.6192 7.07386 83.6192 6.13636C83.6192 5.19602 83.7939 4.39205 84.1433 3.72443C84.4956 3.05398 84.9729 2.54119 85.5752 2.18608C86.1803 1.83097 86.8649 1.65341 87.6291 1.65341C88.3933 1.65341 89.0766 1.83097 89.6788 2.18608C90.284 2.54119 90.7612 3.05398 91.1107 3.72443C91.4629 4.39205 91.6391 5.19602 91.6391 6.13636ZM90.0496 6.13636C90.0496 5.47443 89.9459 4.91619 89.7385 4.46165C89.534 4.00426 89.2499 3.65909 88.8862 3.42614C88.5226 3.19034 88.1036 3.07244 87.6291 3.07244C87.1547 3.07244 86.7357 3.19034 86.372 3.42614C86.0084 3.65909 85.7229 4.00426 85.5155 4.46165C85.3109 4.91619 85.2087 5.47443 85.2087 6.13636C85.2087 6.7983 85.3109 7.35795 85.5155 7.81534C85.7229 8.26989 86.0084 8.61506 86.372 8.85085C86.7357 9.08381 87.1547 9.20028 87.6291 9.20028C88.1036 9.20028 88.5226 9.08381 88.8862 8.85085C89.2499 8.61506 89.534 8.26989 89.7385 7.81534C89.9459 7.35795 90.0496 6.7983 90.0496 6.13636Z\" fill=\"#32F08C\"/>\n<defs>\n<clipPath id=\"clip0_5805_55291\">\n<rect width=\"54.874\" height=\"10.4242\" fill=\"white\" transform=\"translate(0.562988 0.787872)\"/>\n</clipPath>\n<clipPath id=\"clip1_5805_55291\">\n<rect width=\"14.5949\" height=\"10.4242\" fill=\"white\" transform=\"translate(0.562988 0.787872)\"/>\n</clipPath>\n<clipPath id=\"clip2_5805_55291\">\n<rect width=\"35.2321\" height=\"9.18536\" fill=\"white\" transform=\"translate(20.2048 1.50092)\"/>\n</clipPath>\n</defs>\n</svg>","dark":"<svg width=\"92\" height=\"12\" viewBox=\"0 0 92 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_5805_55291)\">\n<g clip-path=\"url(#clip1_5805_55291)\">\n<path d=\"M15.1579 11.2121H2.6478V9.12821H0.562988V0.787872H15.1579V11.2121ZM2.6478 9.12821H13.073V2.87269H2.6478V9.12821ZM7.86092 5.96865L6.38672 7.44275L4.91261 5.96865L6.38672 4.49445L7.86092 5.96865ZM12.0306 5.96775L10.5564 7.44185L9.08233 5.96775L10.5564 4.49355L12.0306 5.96775Z\" fill=\"black\"/>\n</g>\n<g clip-path=\"url(#clip2_5805_55291)\">\n<path d=\"M28.0793 3.37088H25.142V10.6863H23.143V3.37088H20.2048V1.50471H28.0793V3.37088ZM55.4369 3.36808H50.3789V8.81642H55.4369V10.6835H48.3789V1.50092H55.4369V3.36808ZM34.1761 1.50092C36.4528 1.50092 37.1355 2.2611 37.1355 4.43355C37.1355 6.00364 36.6872 6.72418 35.4243 7.14484L37.1466 10.6817H34.9474L33.3569 7.38096H31.2204L31.2222 10.6817V10.6826H29.2583V1.50092H34.1761ZM47.4897 10.6826H45.3993L44.5662 8.50363H40.8449L40.0819 10.6826H37.9048L41.4232 1.50471H44.081L47.4897 10.6826ZM55.436 6.11901L53.8697 7.59312L52.3955 6.11901L53.8697 4.64481L55.436 6.11901ZM41.4547 6.8644H44.0173L42.8578 3.5443H42.5985L41.4547 6.8644ZM31.2222 5.60884H33.8948V5.60794C34.5636 5.60793 35.07 5.38285 35.0701 4.79156V4.14581C35.0701 3.5545 34.5636 3.32935 33.8948 3.32935H31.2222V5.60884Z\" fill=\"black\"/>\n</g>\n</g>\n<path d=\"M65.0407 4.17188C65.0009 3.79972 64.8333 3.50994 64.5379 3.30256C64.2453 3.09517 63.8646 2.99148 63.3958 2.99148C63.0663 2.99148 62.7836 3.04119 62.5478 3.14062C62.312 3.24006 62.1316 3.375 62.0066 3.54545C61.8816 3.71591 61.8177 3.91051 61.8149 4.12926C61.8149 4.31108 61.856 4.46875 61.9384 4.60227C62.0237 4.7358 62.1387 4.84943 62.2836 4.94318C62.4285 5.03409 62.589 5.1108 62.7651 5.1733C62.9413 5.2358 63.1188 5.28835 63.2978 5.33097L64.116 5.53551C64.4455 5.61222 64.7623 5.71591 65.0663 5.84659C65.3731 5.97727 65.6472 6.14205 65.8887 6.34091C66.133 6.53977 66.3262 6.77983 66.4683 7.06108C66.6103 7.34233 66.6813 7.67187 66.6813 8.04972C66.6813 8.56108 66.5506 9.01136 66.2893 9.40057C66.0279 9.78693 65.6501 10.0895 65.1558 10.3082C64.6643 10.5241 64.0691 10.6321 63.3703 10.6321C62.6913 10.6321 62.1018 10.527 61.6018 10.3168C61.1046 10.1065 60.7154 9.79972 60.4342 9.39631C60.1558 8.9929 60.0052 8.50142 59.9825 7.92188H61.5379C61.5606 8.22585 61.6543 8.47869 61.8191 8.6804C61.9839 8.8821 62.1984 9.03267 62.4626 9.1321C62.7296 9.23153 63.0279 9.28125 63.3575 9.28125C63.7012 9.28125 64.0024 9.23011 64.2609 9.12784C64.5222 9.02273 64.7268 8.87784 64.8745 8.69318C65.0222 8.50568 65.0975 8.28693 65.1004 8.03693C65.0975 7.80966 65.0308 7.62216 64.9001 7.47443C64.7694 7.32386 64.5862 7.19886 64.3504 7.09943C64.1174 6.99716 63.8447 6.90625 63.5322 6.8267L62.5393 6.57102C61.8205 6.38636 61.2524 6.10653 60.8347 5.73153C60.42 5.35369 60.2126 4.85227 60.2126 4.22727C60.2126 3.71307 60.3518 3.26278 60.6302 2.87642C60.9114 2.49006 61.2935 2.19034 61.7765 1.97727C62.2595 1.76136 62.8063 1.65341 63.4171 1.65341C64.0364 1.65341 64.5791 1.76136 65.045 1.97727C65.5137 2.19034 65.8816 2.48722 66.1487 2.8679C66.4157 3.24574 66.5535 3.6804 66.562 4.17188H65.0407ZM75.8891 6.13636C75.8891 7.0767 75.7129 7.8821 75.3607 8.55256C75.0112 9.22017 74.534 9.73153 73.9288 10.0866C73.3266 10.4418 72.6433 10.6193 71.8791 10.6193C71.1149 10.6193 70.4303 10.4418 69.8252 10.0866C69.2229 9.72869 68.7456 9.21591 68.3933 8.5483C68.0439 7.87784 67.8692 7.07386 67.8692 6.13636C67.8692 5.19602 68.0439 4.39205 68.3933 3.72443C68.7456 3.05398 69.2229 2.54119 69.8252 2.18608C70.4303 1.83097 71.1149 1.65341 71.8791 1.65341C72.6433 1.65341 73.3266 1.83097 73.9288 2.18608C74.534 2.54119 75.0112 3.05398 75.3607 3.72443C75.7129 4.39205 75.8891 5.19602 75.8891 6.13636ZM74.2996 6.13636C74.2996 5.47443 74.1959 4.91619 73.9885 4.46165C73.784 4.00426 73.4999 3.65909 73.1362 3.42614C72.7726 3.19034 72.3536 3.07244 71.8791 3.07244C71.4047 3.07244 70.9857 3.19034 70.622 3.42614C70.2584 3.65909 69.9729 4.00426 69.7655 4.46165C69.5609 4.91619 69.4587 5.47443 69.4587 6.13636C69.4587 6.7983 69.5609 7.35795 69.7655 7.81534C69.9729 8.26989 70.2584 8.61506 70.622 8.85085C70.9857 9.08381 71.4047 9.20028 71.8791 9.20028C72.3536 9.20028 72.7726 9.08381 73.1362 8.85085C73.4999 8.61506 73.784 8.26989 73.9885 7.81534C74.1959 7.35795 74.2996 6.7983 74.2996 6.13636ZM77.3837 10.5V1.77273H78.9647V9.17472H82.8085V10.5H77.3837ZM91.6391 6.13636C91.6391 7.0767 91.4629 7.8821 91.1107 8.55256C90.7612 9.22017 90.284 9.73153 89.6788 10.0866C89.0766 10.4418 88.3933 10.6193 87.6291 10.6193C86.8649 10.6193 86.1803 10.4418 85.5752 10.0866C84.9729 9.72869 84.4956 9.21591 84.1433 8.5483C83.7939 7.87784 83.6192 7.07386 83.6192 6.13636C83.6192 5.19602 83.7939 4.39205 84.1433 3.72443C84.4956 3.05398 84.9729 2.54119 85.5752 2.18608C86.1803 1.83097 86.8649 1.65341 87.6291 1.65341C88.3933 1.65341 89.0766 1.83097 89.6788 2.18608C90.284 2.54119 90.7612 3.05398 91.1107 3.72443C91.4629 4.39205 91.6391 5.19602 91.6391 6.13636ZM90.0496 6.13636C90.0496 5.47443 89.9459 4.91619 89.7385 4.46165C89.534 4.00426 89.2499 3.65909 88.8862 3.42614C88.5226 3.19034 88.1036 3.07244 87.6291 3.07244C87.1547 3.07244 86.7357 3.19034 86.372 3.42614C86.0084 3.65909 85.7229 4.00426 85.5155 4.46165C85.3109 4.91619 85.2087 5.47443 85.2087 6.13636C85.2087 6.7983 85.3109 7.35795 85.5155 7.81534C85.7229 8.26989 86.0084 8.61506 86.372 8.85085C86.7357 9.08381 87.1547 9.20028 87.6291 9.20028C88.1036 9.20028 88.5226 9.08381 88.8862 8.85085C89.2499 8.61506 89.534 8.26989 89.7385 7.81534C89.9459 7.35795 90.0496 6.7983 90.0496 6.13636Z\" fill=\"#0AB861\"/>\n<defs>\n<clipPath id=\"clip0_5805_55291\">\n<rect width=\"54.874\" height=\"10.4242\" fill=\"white\" transform=\"translate(0.562988 0.787872)\"/>\n</clipPath>\n<clipPath id=\"clip1_5805_55291\">\n<rect width=\"14.5949\" height=\"10.4242\" fill=\"white\" transform=\"translate(0.562988 0.787872)\"/>\n</clipPath>\n<clipPath id=\"clip2_5805_55291\">\n<rect width=\"35.2321\" height=\"9.18536\" fill=\"white\" transform=\"translate(20.2048 1.50092)\"/>\n</clipPath>\n</defs>\n</svg>"};
-              const cancelDark = `<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_5993_243)">
-<path d="M0.437012 7.5C0.437012 3.35786 3.79488 0 7.93701 0C12.0791 0 15.437 3.35786 15.437 7.5C15.437 11.6421 12.0791 15 7.93701 15C3.79488 15 0.437012 11.6421 0.437012 7.5Z" fill="#EDEFF2"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.93698 1.34036C11.3391 1.34036 14.0966 4.09792 14.0966 7.5C14.0966 10.9021 11.3391 13.6596 7.93698 13.6596C4.53491 13.6596 1.77734 10.9021 1.77734 7.5C1.77734 4.09792 4.53491 1.34036 7.93698 1.34036Z" fill="#111214"/>
-<path d="M7.93717 6.70886L9.40826 5.23776L9.80383 4.84128L10.5959 5.63334L10.1994 6.02891L8.72831 7.5L10.1994 8.9711L10.5959 9.36667L9.80383 10.1587L9.40826 9.76224L7.93717 8.29115L6.46607 9.76224L6.0705 10.1587L5.27844 9.36667L5.67493 8.9711L7.14602 7.5L5.67493 6.02891L5.27844 5.63334L6.0705 4.84128L6.46607 5.23776L7.93717 6.70886Z" fill="white"/>
-</g>
-<defs>
-<clipPath id="clip0_5993_243">
-<path d="M0.437012 7.5C0.437012 3.35786 3.79488 0 7.93701 0C12.0791 0 15.437 3.35786 15.437 7.5C15.437 11.6421 12.0791 15 7.93701 15C3.79488 15 0.437012 11.6421 0.437012 7.5Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>`;
-              const cancelLight = `<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_5993_279)">
-<path d="M0.437012 7.5C0.437012 3.35786 3.79488 0 7.93701 0C12.0791 0 15.437 3.35786 15.437 7.5C15.437 11.6421 12.0791 15 7.93701 15C3.79488 15 0.437012 11.6421 0.437012 7.5Z" fill="#2A2D31"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.93698 1.34036C11.3391 1.34036 14.0966 4.09792 14.0966 7.5C14.0966 10.9021 11.3391 13.6596 7.93698 13.6596C4.53491 13.6596 1.77734 10.9021 1.77734 7.5C1.77734 4.09792 4.53491 1.34036 7.93698 1.34036Z" fill="white"/>
-<path d="M7.93717 6.70886L9.40826 5.23776L9.80383 4.84128L10.5959 5.63334L10.1994 6.02891L8.72831 7.5L10.1994 8.9711L10.5959 9.36667L9.80383 10.1587L9.40826 9.76224L7.93717 8.29115L6.46607 9.76224L6.0705 10.1587L5.27844 9.36667L5.67493 8.9711L7.14602 7.5L5.67493 6.02891L5.27844 5.63334L6.0705 4.84128L6.46607 5.23776L7.93717 6.70886Z" fill="black"/>
-</g>
-<defs>
-<clipPath id="clip0_5993_279">
-<path d="M0.437012 7.5C0.437012 3.35786 3.79488 0 7.93701 0C12.0791 0 15.437 3.35786 15.437 7.5C15.437 11.6421 12.0791 15 7.93701 15C3.79488 15 0.437012 11.6421 0.437012 7.5Z" fill="white"/>
-</clipPath>
-</defs>
-</svg>`;
-              const shareIcon = `<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M5.68693 2.33333H2.77026V11.6667H12.1036V8.75M8.6036 2.33333H12.1036V5.83333M6.8536 7.58333L11.5203 2.91666" 
-        stroke="currentColor" stroke-width="1.05" stroke-linecap="square"/>
-</svg>`;
-              
-              
-          // 主题选择函数 (复用自 theme.ts)
-          function getLuminance(r, g, b) {
-            return 0.299 * r + 0.587 * g + 0.114 * b;
-          }
-          
-          function parseColor(color) {
-            const rgbaMatch = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/);
-            if (rgbaMatch) {
-              return [parseInt(rgbaMatch[1]), parseInt(rgbaMatch[2]), parseInt(rgbaMatch[3])];
-            }
-            
-            const hexMatch = color.match(/^#([0-9a-f]{6})$/i);
-            if (hexMatch) {
-              const hex = hexMatch[1];
-              return [
-                parseInt(hex.substr(0, 2), 16),
-                parseInt(hex.substr(2, 2), 16),
-                parseInt(hex.substr(4, 2), 16)
-              ];
-            }
-            
-            const hexShortMatch = color.match(/^#([0-9a-f]{3})$/i);
-            if (hexShortMatch) {
-              const hex = hexShortMatch[1];
-              return [
-                parseInt(hex[0] + hex[0], 16),
-                parseInt(hex[1] + hex[1], 16),
-                parseInt(hex[2] + hex[2], 16)
-              ];
-            }
-            
-            return null;
-          }
-          
-          function detectBackgroundColor(element) {
-            let targetElement;
-            
-            if (typeof element === 'string') {
-              const found = document.querySelector(element);
-              console.debug('Target element found:', found);
-              if (!found) return 'rgb(255, 255, 255)';
-              targetElement = found;
-            } else if (element) {
-              targetElement = element;
-            } else {
-              targetElement = document.body;
-            }
-            
-            let currentElement = targetElement;
-            
-            while (currentElement && currentElement !== document.documentElement) {
-              const computedStyle = window.getComputedStyle(currentElement);
-              const backgroundColor = computedStyle.backgroundColor;
-              
-              console.debug('Checking element:', currentElement.tagName, currentElement.id, currentElement.className);
-              console.debug('Background color:', backgroundColor);
-              
-              if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)' && backgroundColor !== 'transparent') {
-                console.debug('Found background color:', backgroundColor, 'on element:', currentElement);
-                return backgroundColor;
-              }
-              
-              currentElement = currentElement.parentElement;
-            }
-            
-            const bodyStyle = window.getComputedStyle(document.body);
-            const bodyBackground = bodyStyle.backgroundColor;
-            console.debug('Body background:', bodyBackground);
-            if (bodyBackground && bodyBackground !== 'rgba(0, 0, 0, 0)' && bodyBackground !== 'transparent') {
-              return bodyBackground;
-            }
-            
-            const htmlStyle = window.getComputedStyle(document.documentElement);
-            const htmlBackground = htmlStyle.backgroundColor;
-            console.debug('HTML background:', htmlBackground);
-            if (htmlBackground && htmlBackground !== 'rgba(0, 0, 0, 0)' && htmlBackground !== 'transparent') {
-              return htmlBackground;
-            }
-            
-            console.debug('No background found, returning default white');
-            return 'rgb(255, 255, 255)';
-          }
-          
-          function autoSelectTheme(container) {
-            const backgroundColor = detectBackgroundColor(container);
-            const rgb = parseColor(backgroundColor);
-            
-            console.debug('TRAE Badge Plugin - Background detection:', {
-              container,
-              backgroundColor,
-              rgb
-            });
-            
-            if (!rgb) {
-              console.debug('TRAE Badge Plugin - No RGB found, using dark theme');
-              return 'dark';
-            }
-            
-            const [r, g, b] = rgb;
-            const luminance = getLuminance(r, g, b);
-            const selectedTheme = luminance > 128 ? 'dark' : 'light';
-            
-            console.debug('TRAE Badge Plugin - Theme selection:', {
-              luminance,
-              selectedTheme,
-              reason: luminance > 128 ? 'Light background -> Dark badge' : 'Dark background -> Light badge'
-            });
-            
-            return selectedTheme;
-          }
-        
-              
-              // 注入样式
-              const style = document.createElement('style');
-              style.id = 'trae-badge-plugin-styles';
-              style.textContent = css;
-              document.head.appendChild(style);
-              
-              // 创建 Badge 函数
-              function createBadge() {
-                // 移除已存在的 badge
-                const existingBadge = document.getElementById('trae-badge-plugin');
-                if (existingBadge) {
-                  existingBadge.remove();
-                }
-                
-                // 确定主题
-                let variant = 'dark';
-                if (true) {
-                  variant = autoSelectTheme('#root');
-                }
-                
-                const isDarkBackground = variant === 'dark';
-                const logoType = isDarkBackground ? 'light' : 'dark';
-                const cancelIcon = isDarkBackground ? cancelLight : cancelDark;
-                
-                const badge = document.createElement('div');
-                badge.id = 'trae-badge-plugin';
-                badge.className = `trae-badge trae-badge--${variant} trae-badge--bottom-right`;
-                badge.innerHTML = `
-                  <div class="trae-badge-content">
-                    <div class="trae-badge-logo">${logos[logoType]}</div>
-                    <div class="trae-badge-share">${shareIcon}</div>
-                  </div>
-                  <div class="trae-badge-cancel">${cancelIcon}</div>
-                `;
-                
-                // 添加点击事件
-                
-                badge.style.cursor = 'pointer';
-                badge.addEventListener('click', (e) => {
-                  if (e.target.closest('.trae-badge-cancel')) return;
-                  window.open('https://www.trae.ai/solo?showJoin=1', '_blank');
-                });
-                
-                
-                // 添加取消按钮事件
-                const cancelButton = badge.querySelector('.trae-badge-cancel');
-                if (cancelButton) {
-                  cancelButton.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    badge.remove();
-                  });
-                }
-                
-                document.body.appendChild(badge);
-                return badge;
-              }
-              
-              // 初始创建 badge
-              // 等待 React 组件渲染完成后再创建 badge
-              function initBadge() {
-                // 使用 requestAnimationFrame 等待渲染完成
-                requestAnimationFrame(() => {
-                  // 再次检查目标元素是否存在
-                  const targetElement = document.querySelector('#root');
-                  if (targetElement) {
-                    const badge = createBadge();
-                  } else {
-                    // 如果还没有找到，等待一段时间再试
-                    setTimeout(() => {
-                      const badge = createBadge();
-                    }, 500);
-                  }
-                });
-              }
-              
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initBadge);
-              } else {
-                // DOM 已经加载完成，但 React 可能还没渲染
-                initBadge();
-              }
-              
-              window.TraeBadgePlugin = { 
-                destroy: () => {
-                  const badge = document.getElementById('trae-badge-plugin');
-                  if (badge) badge.remove();
-                  style.remove();
-                  delete window.TraeBadgePlugin;
-                },
-                recreate: createBadge
-              };
-            })();
-          </script>
-        
-</body>
-</html>
+    syncBackdrop();
+    requestAnimationFrame(syncBackdrop);
+  })();
+</script><script src="/guojihai.github.io/_next/static/chunks/0cz1d0mv5g_q7.js" noModule=""></script><link rel="stylesheet" href="/guojihai.github.io/profile.css"/><link rel="stylesheet" href="/guojihai.github.io/portfolio.css"/><script src="/guojihai.github.io/portfolio.js" defer></script></head><body><div hidden=""><!--$--><!--/$--></div><section data-initial-site-loader="true" aria-label="正在加载网站" class="fixed inset-0 z-[300] flex min-h-svh items-center justify-center overflow-hidden bg-b1 p-6 transition-opacity duration-[620ms] ease-66 motion-reduce:transition-none opacity-100"><div class="flex items-center gap-3"><div role="progressbar" aria-label="网站加载进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="3" class="h-2 w-[min(44vw,220px)] overflow-hidden rounded-[6px] bg-line"><div class="h-full rounded-[6px] bg-[#c0fe04]" style="width:3%"></div></div><span class="w-10 text-right font-mono text-xs tabular-nums text-l1">3%</span></div></section><div class="fixed inset-0 -z-[3] pointer-events-none"><div class="absolute inset-0" style="background:linear-gradient(180deg, var(--hero-top-wash) 0%, transparent 32%, transparent 68%, var(--hero-bottom-wash) 100%), linear-gradient(180deg, var(--hero-sky-0) 0%, var(--hero-sky-1) 22%, var(--hero-sky-2) 44%, var(--hero-sky-3) 62%, var(--hero-sky-4) 80%, var(--hero-sky-5) 100%)"></div><div class="absolute inset-0" style="background:var(--background-1, #fbfaf4);opacity:var(--initial-backdrop-opacity, 0)"></div></div><div aria-hidden="true" class="hero-light-patches fixed inset-0 pointer-events-none" style="z-index:-1;overflow:hidden"><div class="absolute" style="top:-30%;left:-30%;width:160%;height:160%;will-change:transform, opacity;background:radial-gradient(
+              70% 26% at 24% 30%,
+              rgba(var(--hero-patch-a), 0.55) 0%,
+              rgba(var(--hero-patch-a), 0.22) 42%,
+              rgba(var(--hero-patch-a), 0.0) 72%
+            ),
+            radial-gradient(
+              64% 20% at 66% 24%,
+              rgba(var(--hero-patch-b), 0.42) 0%,
+              rgba(var(--hero-patch-b), 0.16) 46%,
+              rgba(var(--hero-patch-b), 0.0) 78%
+            ),
+            radial-gradient(
+              80% 22% at 52% 58%,
+              rgba(var(--hero-patch-b), 0.5) 0%,
+              rgba(var(--hero-patch-b), 0.2) 44%,
+              rgba(var(--hero-patch-b), 0.0) 76%
+            );filter:blur(30px);transform:rotate(-8deg);mix-blend-mode:screen"></div><div class="absolute" style="top:-10%;left:-20%;width:150%;height:150%;background:radial-gradient(
+              62% 46% at 34% 88%,
+              rgba(var(--hero-patch-warm), 0.62) 0%,
+              rgba(var(--hero-patch-warm), 0.30) 34%,
+              rgba(var(--hero-patch-warm), 0.0) 68%
+            );filter:blur(34px);mix-blend-mode:screen"></div><div class="absolute" style="top:0;left:0;width:1200px;height:900px;margin-left:-600px;margin-top:-450px;will-change:transform, opacity;background:radial-gradient(ellipse 46% 20% at 24% 38%,
+              rgba(var(--hero-glow), 0.44) 0%,
+              rgba(var(--hero-glow), 0.12) 48%,
+              rgba(var(--hero-glow), 0.0) 82%),
+            radial-gradient(ellipse 30% 52% at 70% 34%,
+              rgba(var(--hero-glow), 0.28) 0%,
+              rgba(var(--hero-glow), 0.08) 50%,
+              rgba(var(--hero-glow), 0.0) 86%),
+            radial-gradient(ellipse 42% 22% at 62% 76%,
+              rgba(var(--hero-glow-warm), 0.34) 0%,
+              rgba(var(--hero-glow-warm), 0.08) 52%,
+              rgba(var(--hero-glow-warm), 0.0) 84%),
+            radial-gradient(ellipse 72% 48% at 50% 52%,
+              rgba(var(--hero-glow), 0.14) 0%,
+              rgba(var(--hero-glow), 0.0) 76%);filter:blur(44px);mix-blend-mode:screen"></div></div><div aria-hidden="true" class="fixed inset-0 pointer-events-none" style="z-index:1;will-change:opacity"><span class="hero-sparkle" style="position:absolute;left:20vw;top:52vh;width:26px;height:26px;margin-left:-13px;margin-top:-13px;--twk-delay:0s;--twk-dur:2.4s"></span><span class="hero-sparkle" style="position:absolute;left:33vw;top:60vh;width:18px;height:18px;margin-left:-9px;margin-top:-9px;--twk-delay:0.9s;--twk-dur:2.9s"></span><span class="hero-sparkle" style="position:absolute;left:49vw;top:55vh;width:30px;height:30px;margin-left:-15px;margin-top:-15px;--twk-delay:0.4s;--twk-dur:2.2s"></span><span class="hero-sparkle" style="position:absolute;left:58vw;top:62vh;width:16px;height:16px;margin-left:-8px;margin-top:-8px;--twk-delay:1.6s;--twk-dur:3.1s"></span><span class="hero-sparkle" style="position:absolute;left:71vw;top:53vh;width:24px;height:24px;margin-left:-12px;margin-top:-12px;--twk-delay:0.7s;--twk-dur:2.6s"></span><span class="hero-sparkle" style="position:absolute;left:80vw;top:60vh;width:14px;height:14px;margin-left:-7px;margin-top:-7px;--twk-delay:1.2s;--twk-dur:2.8s"></span><span class="hero-sparkle" style="position:absolute;left:43vw;top:46vh;width:20px;height:20px;margin-left:-10px;margin-top:-10px;--twk-delay:2s;--twk-dur:3.3s"></span></div><header aria-hidden="false" class="z-[200] fixed inset-0 flex flex-col justify-between pointer-events-none transition-colors duration-300 ease-out" style="font-family:var(--font-mono-2);opacity:1;visibility:visible"><div class="relative z-[60] flex justify-between items-center px-4 lg:px-14 py-4 lg:py-7 text-base"><a aria-label="Return to the top of the page" class="relative p-2 font-sans font-bold uppercase pointer-events-auto transition-opacity duration-500 ease-out before:content-[&#x27;&#x27;] before:absolute before:inset-0 before:border-2 before:border-dotted before:border-transparent before:pointer-events-none before:transition-colors before:duration-200 lg:hover:before:border-[var(--label-1)]" style="font-variation-settings:&quot;wght&quot; 700, &quot;wdth&quot; 120;opacity:1;pointer-events:auto" href="/guojihai.github.io/"><span class="" style="visibility:hidden">GUO JIHAI</span></a><div class="hidden lg:flex flex-wrap justify-between items-center gap-y-2 pointer-events-auto basis-1/2 xl:basis-1/3"><button type="button" class="relative p-2 uppercase cursor-pointer before:content-[&#x27;&#x27;] before:absolute before:inset-0 before:border-2 before:border-dotted before:border-transparent before:pointer-events-none before:transition-colors before:duration-200 lg:hover:before:border-[var(--label-1)]"><span class="" style="visibility:hidden">Experience</span></button><button type="button" class="relative p-2 uppercase cursor-pointer before:content-[&#x27;&#x27;] before:absolute before:inset-0 before:border-2 before:border-dotted before:border-transparent before:pointer-events-none before:transition-colors before:duration-200 lg:hover:before:border-[var(--label-1)]"><span class="" style="visibility:hidden">Work</span></button><button type="button" class="relative p-2 uppercase cursor-pointer before:content-[&#x27;&#x27;] before:absolute before:inset-0 before:border-2 before:border-dotted before:border-transparent before:pointer-events-none before:transition-colors before:duration-200 lg:hover:before:border-[var(--label-1)]"><span class="" style="visibility:hidden">Contact</span></button><button type="button" aria-pressed="false" aria-label="Sound paused, click to play" class="inline-flex shrink-0 items-baseline gap-0 relative p-2 uppercase cursor-pointer pointer-events-auto normal-case tabular-nums before:content-[&#x27;&#x27;] before:absolute before:inset-0 before:border-2 before:border-dotted before:border-transparent before:pointer-events-none before:transition-colors before:duration-200 lg:hover:before:border-[var(--label-1)]"><span class="" style="visibility:hidden">SOUND[·]</span></button></div><button type="button" aria-label="Open menu" class="lg:hidden flex flex-row justify-end items-center gap-4 col-span-6 p-2 cursor-pointer pointer-events-auto"><div class="relative w-6 h-6"><div class="w-6 h-0.5 absolute transition-all duration-500 origin-center" style="top:6px;transform:none;background:var(--label-1)"></div><div class="w-6 h-0.5 absolute transition-all duration-500 origin-center" style="bottom:6px;top:auto;transform:none;background:var(--label-1)"></div></div></button></div><div class="lg:hidden fixed inset-0 z-[49] flex flex-col transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)]" style="background:#0a0a0a;transform:translateX(100%);pointer-events:none"><nav class="flex-1 flex flex-col items-center justify-center gap-4"><button type="button" class="text-center text-4xl font-bold uppercase tracking-tight cursor-pointer p-2 text-white transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)]" style="font-family:var(--font-mono-2);opacity:0;transform:translateY(30px);transition-delay:0ms">Home</button><button type="button" class="text-center text-4xl font-bold uppercase tracking-tight cursor-pointer p-2 text-white transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)]" style="font-family:var(--font-mono-2);opacity:0;transform:translateY(30px);transition-delay:0ms">Experience</button><button type="button" class="text-center text-4xl font-bold uppercase tracking-tight cursor-pointer p-2 text-white transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)]" style="font-family:var(--font-mono-2);opacity:0;transform:translateY(30px);transition-delay:0ms">Work</button><button type="button" class="text-center text-4xl font-bold uppercase tracking-tight cursor-pointer p-2 text-white transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)]" style="font-family:var(--font-mono-2);opacity:0;transform:translateY(30px);transition-delay:0ms">Contact</button></nav></div><div class="flex justify-between px-4 lg:px-14 py-4 lg:py-7 transition-opacity duration-500" style="opacity:1;pointer-events:auto"><span class="lg:hidden p-2 uppercase transition-[color,opacity] duration-300 ease-out" style="font-family:var(--font-mono-2);opacity:1;visibility:visible"><span class="" style="visibility:hidden"> 34°C</span></span><span class="hidden lg:inline p-2 uppercase transition-opacity duration-300 ease-out" style="font-family:var(--font-mono-2);opacity:1;visibility:visible"><span class="" style="visibility:hidden">GMT+8 CN  34°C</span></span><button type="button" aria-label="切换到深色模式" aria-pressed="false" title="切换到深色模式" class="hidden lg:inline-flex relative items-center justify-center w-12 h-10 p-2 shrink-0 cursor-pointer pointer-events-auto transition-transform duration-300 hover:scale-110"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute transition-all duration-300" style="opacity:0;transform:rotate(-45deg) scale(0.55)"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.35"></circle><path d="M12 2V4M12 20V22M4.93 4.93L6.34 6.34M17.66 17.66L19.07 19.07M2 12H4M20 12H22M4.93 19.07L6.34 17.66M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"></path></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="absolute transition-all duration-300" style="opacity:1;transform:rotate(0deg) scale(1)"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div><div class="pointer-events-auto top-1/2 right-0 bottom-0 z-30 fixed w-14 px-3 h-50 -translate-y-1/2 hidden lg:block transition-opacity duration-500"><svg width="32" height="200" viewBox="0 0 32 200" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M 16 6 V 194" stroke="currentColor" stroke-opacity="0.2" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"></path><path d="M 16 6 V 26" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"></path></svg></div><div class="pointer-events-auto lg:hidden right-0 bottom-0 z-30 fixed flex justify-center items-center px-6 py-6 transition-opacity duration-500" style="opacity:1;pointer-events:auto"><svg width="24px" height="24px" viewBox="0 0 32 32"><circle r="12" cy="16" cx="16" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="currentColor" stroke-opacity="1" transform="rotate(-90 16 16)"></circle><circle r="12" cy="16" cx="16" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="8" stroke="currentColor" stroke-dashoffset="75.4" stroke-dasharray="75.4" transform="rotate(-90 16 16)"></circle></svg></div></header><div id="banner" class="relative z-[2] grid grid-cols-12 grid-rows-[auto_1fr] px-4 lg:px-14 py-18 lg:py-24 w-full h-dvh lg:h-screen select-none"><div class="flex flex-col order-2 lg:order-1 lg:grid lg:grid-cols-12 col-span-12 font-mono text-base"><span class="hidden lg:block lg:col-span-3 xl:col-span-2 lg:col-start-1 xl:col-start-1 p-2 font-sans font-medium text-2xl lg:text-3xl leading-tight"><span class="" style="visibility:hidden">UI/UX &amp;</span><br/><span class="" style="visibility:hidden">AI Design</span></span><span class="col-span-12 lg:col-span-6 xl:col-span-4 lg:col-start-7 xl:col-start-9 mt-auto lg:mt-0 p-2"><span class="" style="visibility:hidden">Press 「S」 to pause background music, or click sound; 「T」scroll to top,</span><span class="" style="visibility:hidden">「B」scroll to bottom</span></span></div><div class="flex flex-col self-end order-1 lg:order-2 col-span-12 px-2 font-bold text-[7.2svw] lg:text-[6svw] 2xl:text-[5svw] xl:text-[5.6svw] uppercase leading-none" style="font-variation-settings:&quot;wdth&quot; 120"><span class="" style="visibility:hidden">GUO JIHAI</span><span class="" style="visibility:hidden">UI/UX DESIGNER</span><span class="" style="visibility:hidden">DESIGN WITH AI</span></div></div><div id="about" class="relative z-[2] grid min-h-[80svh] w-full grid-cols-12 items-start px-4 py-18 lg:px-14 lg:py-24 lg:pb-28"><div class="relative col-span-12 sm:col-span-4 lg:col-span-3 p-2"><div class="relative aspect-square overflow-hidden rounded-[6px]"><img alt="郭济海" decoding="async" data-nimg="fill" class="h-full w-full object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="/guojihai.github.io/img/guojihai-portrait.png"/></div><svg viewBox="0 0 340 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-sign absolute pointer-events-none z-10 " aria-hidden="true" style="top:calc(-5% - 60px);left:-3%;width:96%;transform:rotate(-14deg) scale(0.8);transform-origin:12% 88%"></svg></div><div class="flex flex-col justify-start items-start gap-6 col-span-12 sm:col-span-7 lg:col-span-8 sm:col-start-6 lg:col-start-5 text-base lg:text-xl leading-none"><p class="p-2 w-full text-xl font-light md:text-[clamp(1.25rem,2.2svw,2.25rem)] leading-[1.3] md:leading-[1.24] select-text" style="font-family:&quot;tiktok&quot;, sans-serif;color:var(--label-1);opacity:0;transform:translateY(22px)">你好，我是郭济海，拥有 10 年以上 UI/UX 设计经验，<strong class="font-bold">专注设计系统、AI 产品体验与界面视觉，</strong>能够独立完成从需求梳理、交互设计到视觉交付的全流程设计。</p><p class="p-2 w-full text-xl font-light md:text-[clamp(1.25rem,2.2svw,2.25rem)] leading-[1.3] md:leading-[1.24] select-text" style="font-family:&quot;tiktok&quot;, sans-serif;color:var(--label-1);opacity:0;transform:translateY(22px)">目前就职于万联易达集团，负责<strong class="font-bold">产业级 AI 产品的全链路体验设计。</strong>此前在 58 同城主导社区体验升级与设计系统建设，并参与海外生活服务平台 OK.com 的设计。<strong class="font-bold">让设计兼顾用户需求、业务目标与落地质量。</strong></p><p class="p-2 w-full text-xl font-light md:text-[clamp(1.25rem,2.2svw,2.25rem)] leading-[1.3] md:leading-[1.24] select-text" style="font-family:&quot;tiktok&quot;, sans-serif;color:var(--label-1);opacity:0;transform:translateY(22px)">擅长将 AI 融入调研、视觉探索与组件交付，减少重复工作；具备小团队管理经验，持续提升协作效率。</p></div></div><section id="experience" aria-labelledby="experience-title" class="relative z-[2] min-h-[100svh] w-full px-4 py-20 lg:px-14"><div class="grid min-h-[calc(100svh-10rem)] grid-cols-12 content-start gap-x-0 gap-y-12 lg:content-between lg:gap-0"><header class="col-span-12 grid grid-cols-12 items-end" style="opacity:0;transform:translateY(34px)"><div class="col-span-12 p-2 lg:col-span-5"><h2 id="experience-title" class="flex flex-col text-[clamp(3.5rem,5.2vw,6.3rem)] font-bold uppercase leading-none text-l1" style="font-variation-settings:&quot;wdth&quot; 120"><span>Work</span><span>Experience</span></h2></div></header><div data-experience-card="true" data-lenis-prevent-touch="true" class="no-scrollbar col-span-12 mt-8 min-w-0 w-full max-w-full snap-x snap-mandatory overflow-x-auto overscroll-x-contain px-6 pb-7 pt-12 sm:px-8 sm:pt-14 lg:mx-2 lg:h-[clamp(500px,57svh,620px)] lg:overflow-visible lg:px-10 lg:pb-12 lg:pt-20 experience-scroll" style="background:var(--experience-card-background);border-radius:6px"><div class="relative flex min-w-max lg:grid lg:w-full lg:min-w-0 lg:grid-cols-12" style="opacity:0"><div aria-hidden="true" class="absolute right-[-1.5rem] top-0 h-px origin-left bg-line lg:right-[-2.5rem] left-16 lg:left-[39px]" style="transform:scaleX(0)"></div><article class="relative min-w-[82vw] snap-start px-2 pb-2 pt-10 pr-10 sm:min-w-[64vw] lg:col-span-4 lg:min-w-0 lg:px-6 lg:pb-2 lg:pt-10 pl-[49px] lg:pl-6" style="opacity:0;transform:translateY(24px)"><span aria-hidden="true" data-experience-node="true" class="absolute top-[-10px] grid h-5 w-5 place-items-center rounded-full bg-[var(--experience-node-surface)] ring-[5px] ring-[var(--experience-node-ring)] left-[54px] lg:left-[29px]" style="transform:scale(0) rotate(45deg)"><span class="h-2.5 w-2.5 rounded-full bg-l1"></span></span><p class="text-[0.72rem] uppercase tracking-[0.07em] text-l2" style="font-family:var(--font-mono-2)">2026.07 — 至今</p><h3 class="mt-5 text-[clamp(1.3rem,1.6vw,1.85rem)] font-medium leading-tight tracking-[-0.025em] text-l1">万联易达集团</h3><p class="mt-1.5 text-sm text-l2 lg:text-[0.92rem]">资深 UI 设计师</p><div class="mt-7 lg:mt-6"><h4 class="text-sm font-medium text-l1 lg:text-[0.92rem]">项目</h4><ul class="mt-3 grid gap-1.5 text-[clamp(0.8rem,0.86vw,0.94rem)] leading-[1.35] text-l2"><li>产业级 AI 产品全链路体验</li><li>电力交易智能工作台</li><li>小万健康 · 企业 AI 名片</li><li>AI 设计工作流与组件模板</li></ul></div></article><article class="relative min-w-[82vw] snap-start px-2 pb-2 pt-10 pr-10 sm:min-w-[64vw] lg:col-span-4 lg:min-w-0 lg:px-6 lg:pb-2 lg:pt-10 " style="opacity:0;transform:translateY(24px)"><span aria-hidden="true" data-experience-node="true" class="absolute top-[-10px] grid h-5 w-5 place-items-center rounded-full bg-[var(--experience-node-surface)] ring-[5px] ring-[var(--experience-node-ring)] left-[13px] lg:left-[29px]" style="transform:scale(0) rotate(45deg)"><span class="h-2.5 w-2.5 rounded-full bg-l1"></span></span><p class="text-[0.72rem] uppercase tracking-[0.07em] text-l2" style="font-family:var(--font-mono-2)">2023.10 — 2026.07</p><h3 class="mt-5 text-[clamp(1.3rem,1.6vw,1.85rem)] font-medium leading-tight tracking-[-0.025em] text-l1">58 同城</h3><p class="mt-1.5 text-sm text-l2 lg:text-[0.92rem]">UI 设计师</p><div class="mt-7 lg:mt-6"><h4 class="text-sm font-medium text-l1 lg:text-[0.92rem]">项目</h4><ul class="mt-3 grid gap-1.5 text-[clamp(0.8rem,0.86vw,0.94rem)] leading-[1.35] text-l2"><li>主导社区 3 次大版本体验升级</li><li>搭建设计系统与组件规范</li><li>参与海外平台 OK.com 设计</li><li>获 2025 年度 UXD 精品设计奖</li></ul></div></article><article class="relative min-w-[82vw] snap-start px-2 pb-2 pt-10 pr-10 sm:min-w-[64vw] lg:col-span-4 lg:min-w-0 lg:px-6 lg:pb-2 lg:pt-10 " style="opacity:0;transform:translateY(24px)"><span aria-hidden="true" data-experience-node="true" class="absolute top-[-10px] grid h-5 w-5 place-items-center rounded-full bg-[var(--experience-node-surface)] ring-[5px] ring-[var(--experience-node-ring)] left-[13px] lg:left-[29px]" style="transform:scale(0) rotate(45deg)"><span class="h-2.5 w-2.5 rounded-full bg-l1"></span></span><p class="text-[0.72rem] uppercase tracking-[0.07em] text-l2" style="font-family:var(--font-mono-2)">2019.10 — 2023.06</p><h3 class="mt-5 text-[clamp(1.3rem,1.6vw,1.85rem)] font-medium leading-tight tracking-[-0.025em] text-l1">亲家科技</h3><p class="mt-1.5 text-sm text-l2 lg:text-[0.92rem]">UI 设计师</p><div class="mt-7 lg:mt-6"><h4 class="text-sm font-medium text-l1 lg:text-[0.92rem]">项目</h4><ul class="mt-3 grid gap-1.5 text-[clamp(0.8rem,0.86vw,0.94rem)] leading-[1.35] text-l2"><li>AIHelp 智能客服系统</li><li>金融小程序与 CRM 产品</li><li>品牌官网与视觉体系</li><li>管理 2 人设计团队</li></ul></div></article><article class="relative min-w-[82vw] snap-start px-2 pb-2 pt-10 pr-10 sm:min-w-[64vw] lg:col-span-4 lg:min-w-0 lg:px-6 lg:pb-2 lg:pt-10 " style="opacity:0;transform:translateY(24px)"><span aria-hidden="true" data-experience-node="true" class="absolute top-[-10px] grid h-5 w-5 place-items-center rounded-full bg-[var(--experience-node-surface)] ring-[5px] ring-[var(--experience-node-ring)] left-[13px] lg:left-[29px]" style="transform:scale(0) rotate(45deg)"><span class="h-2.5 w-2.5 rounded-full bg-l1"></span></span><p class="text-[0.72rem] uppercase tracking-[0.07em] text-l2" style="font-family:var(--font-mono-2)">2016.03 — 2019.09</p><h3 class="mt-5 text-[clamp(1.3rem,1.6vw,1.85rem)] font-medium leading-tight tracking-[-0.025em] text-l1">大视野集团</h3><p class="mt-1.5 text-sm text-l2 lg:text-[0.92rem]">UI 设计师</p><div class="mt-7 lg:mt-6"><h4 class="text-sm font-medium text-l1 lg:text-[0.92rem]">项目</h4><ul class="mt-3 grid gap-1.5 text-[clamp(0.8rem,0.86vw,0.94rem)] leading-[1.35] text-l2"><li>研学通与微格教育产品</li><li>教师管理与直播平台</li><li>产品视觉规范与体验优化</li><li>跨团队协作推进设计落地</li></ul></div></article></div></div></div></section><section id="selected-work" aria-labelledby="featured-work-title" class="relative z-[2] w-full bg-transparent h-[200svh]"><div class="sticky top-0 flex h-[100svh] w-full items-center overflow-hidden px-4 py-20 sm:px-6 lg:px-16 lg:py-24"><div class="pointer-events-none absolute inset-0 z-[1] overflow-hidden"><div class="absolute inset-x-0" style="bottom:calc(50% + clamp(3.25rem, 4.5vw, 5.75rem))"><h2 id="featured-work-title" class="whitespace-nowrap text-[7.2svw] font-medium uppercase leading-[0.82] text-l1 lg:text-[6svw] xl:text-[5.6svw] 2xl:text-[5svw]" style="opacity:0;will-change:transform, opacity;transform:none">Latest</h2></div><div class="absolute inset-x-0" style="top:calc(50% + clamp(3.25rem, 4.5vw, 5.75rem))"><h2 aria-hidden="true" class="ml-auto w-max whitespace-nowrap text-[7.2svw] font-medium uppercase leading-[0.82] text-l1 lg:text-[6svw] xl:text-[5.6svw] 2xl:text-[5svw]" style="opacity:0;will-change:transform, opacity;transform:none">Work</h2></div><div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"><p class="max-w-[25ch] text-center text-[clamp(0.72rem,1.05vw,1rem)] uppercase leading-[1.18] text-l1" style="opacity:0;font-family:var(--font-mono-2);will-change:transform, opacity;transform:none">最新项目 · 滚动探索</p></div></div><div class="relative z-[3] flex w-full flex-col"><div class="guo-featured-grid grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-2 lg:gap-4" style="visibility:visible;pointer-events:auto;perspective:1500px"><article class="relative min-w-0" data-work-card="true"><button type="button" aria-label="58 同城 · 社区体验升级, 2023 — 2026" aria-haspopup="dialog" class="group relative aspect-[3000/1636] min-h-0 w-full overflow-hidden bg-transparent text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-selection focus-visible:ring-offset-2 focus-visible:ring-offset-b1" style="border-radius:6px"></button></article><article class="relative min-w-0" data-work-card="true"><button type="button" aria-label="OK.com · 国际化体验设计, 2024 — 2025" aria-haspopup="dialog" class="group relative aspect-[3000/1636] min-h-0 w-full overflow-hidden bg-transparent text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-selection focus-visible:ring-offset-2 focus-visible:ring-offset-b1" style="border-radius:6px"></button></article><article class="relative min-w-0" data-work-card="true"><button type="button" aria-label="AI + 电力 · 交易智能工作台, 2026" aria-haspopup="dialog" class="group relative aspect-[3000/1636] min-h-0 w-full overflow-hidden bg-transparent text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-selection focus-visible:ring-offset-2 focus-visible:ring-offset-b1" style="border-radius:6px"></button></article><article class="relative min-w-0" data-work-card="true"><button type="button" aria-label="AIGC · 创意与设计实践, " aria-haspopup="dialog" class="group relative aspect-[3000/1636] min-h-0 w-full overflow-hidden bg-transparent text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-selection focus-visible:ring-offset-2 focus-visible:ring-offset-b1" style="border-radius:6px"></button></article></div></div></div></section><section id="more-work" aria-labelledby="past-work-title" class="profile-projects"><header class="profile-project-heading"><div><p class="profile-project-eyebrow">过往项目</p><h2 id="past-work-title">Past Projects</h2></div><p class="profile-project-subtitle">金融科技 · 生活社交 · 智能客服 · 在线教育</p></header><div class="profile-project-grid"><article class="profile-project">
+<a class="profile-project-link" href="/guojihai.github.io/portfolio/loan-miniapp/" data-project="loan-miniapp" aria-label="查看贷款进件小程序完整作品">
+<div class="profile-project-cover"><img src="/guojihai.github.io/portfolio/loan-miniapp/cover.webp" srcset="/guojihai.github.io/portfolio/loan-miniapp/cover-small.webp 640w, /guojihai.github.io/portfolio/loan-miniapp/cover.webp 1200w" sizes="(max-width: 767px) 220px, (max-width: 1023px) calc((100vw - 118px)/4), calc((100vw - 188px)/4)" width="1200" height="675" loading="lazy" decoding="async" alt="贷款进件小程序项目封面"/><span class="profile-project-open" aria-hidden="true">↗</span></div>
+<div class="profile-project-info"><div class="profile-project-meta"><span>05</span><span>MINI PROGRAM · FINTECH</span></div>
+<h3>贷款进件小程序</h3><p>围绕贷款申请全流程，组织信息架构、身份认证与进件体验。</p><span class="profile-project-view">查看完整项目 <span aria-hidden="true">↗</span></span></div>
+</a></article><article class="profile-project">
+<a class="profile-project-link" href="/guojihai.github.io/portfolio/tingliu/" data-project="tingliu" aria-label="查看停留 App · 本地生活社交完整作品">
+<div class="profile-project-cover"><img src="/guojihai.github.io/portfolio/tingliu/cover.webp" srcset="/guojihai.github.io/portfolio/tingliu/cover-small.webp 640w, /guojihai.github.io/portfolio/tingliu/cover.webp 1200w" sizes="(max-width: 767px) 220px, (max-width: 1023px) calc((100vw - 118px)/4), calc((100vw - 188px)/4)" width="1200" height="675" loading="lazy" decoding="async" alt="停留 App · 本地生活社交项目封面"/><span class="profile-project-open" aria-hidden="true">↗</span></div>
+<div class="profile-project-info"><div class="profile-project-meta"><span>06</span><span>LIFESTYLE · SOCIAL APP</span></div>
+<h3>停留 App · 本地生活社交</h3><p>从品牌视觉、用户分析到核心界面，呈现本地生活与拼单社交体验。</p><span class="profile-project-view">查看完整项目 <span aria-hidden="true">↗</span></span></div>
+</a></article><article class="profile-project">
+<a class="profile-project-link" href="/guojihai.github.io/portfolio/aihelp/" data-project="aihelp" aria-label="查看AIHelp · 智能客服与运营完整作品">
+<div class="profile-project-cover"><img src="/guojihai.github.io/portfolio/aihelp/cover.webp" srcset="/guojihai.github.io/portfolio/aihelp/cover-small.webp 640w, /guojihai.github.io/portfolio/aihelp/cover.webp 1200w" sizes="(max-width: 767px) 220px, (max-width: 1023px) calc((100vw - 118px)/4), calc((100vw - 188px)/4)" width="1200" height="675" loading="lazy" decoding="async" alt="AIHelp · 智能客服与运营项目封面"/><span class="profile-project-open" aria-hidden="true">↗</span></div>
+<div class="profile-project-info"><div class="profile-project-meta"><span>07</span><span>SAAS · WEB &amp; APP</span></div>
+<h3>AIHelp · 智能客服与运营</h3><p>围绕机器人与人工协同的服务场景，搭建跨端界面与统一设计规范。</p><span class="profile-project-view">查看完整项目 <span aria-hidden="true">↗</span></span></div>
+</a></article><article class="profile-project">
+<a class="profile-project-link" href="/guojihai.github.io/portfolio/yanxuetong/" data-project="yanxuetong" aria-label="查看研学通 · 在线教育平台完整作品">
+<div class="profile-project-cover"><img src="/guojihai.github.io/portfolio/yanxuetong/cover.webp" srcset="/guojihai.github.io/portfolio/yanxuetong/cover-small.webp 640w, /guojihai.github.io/portfolio/yanxuetong/cover.webp 1200w" sizes="(max-width: 767px) 220px, (max-width: 1023px) calc((100vw - 118px)/4), calc((100vw - 188px)/4)" width="1200" height="675" loading="lazy" decoding="async" alt="研学通 · 在线教育平台项目封面"/><span class="profile-project-open" aria-hidden="true">↗</span></div>
+<div class="profile-project-info"><div class="profile-project-meta"><span>08</span><span>EDUCATION · MOBILE APP</span></div>
+<h3>研学通 · 在线教育平台</h3><p>串联课程发现、学习与个人管理，呈现在线教育产品的完整设计。</p><span class="profile-project-view">查看完整项目 <span aria-hidden="true">↗</span></span></div>
+</a></article></div></section><footer id="contact" class="relative z-30 h-[100svh] w-full bg-b1 pointer-events-none"><div class="absolute inset-0 z-30 pointer-events-none" style="opacity:0;transform:translate3d(0, 0, 0);will-change:transform, opacity"><div class="relative grid grid-cols-12 w-full h-full px-6 py-8 lg:px-16 lg:py-14"><div class="col-span-12 lg:col-span-8 flex flex-col justify-start items-start"><h2 class="absolute left-6 top-[calc(33.333svh-1.85em)] font-bold text-[7.2svw] leading-none lg:left-16 lg:top-[calc(33.333vh-1.85em)] lg:text-[6svw] xl:text-[5.6svw] 2xl:text-[5svw]" style="font-variation-settings:&quot;wdth&quot; 120;opacity:0;transform:translate3d(0, 0, 0);will-change:transform, opacity"><span class="block whitespace-nowrap">Let&#x27;s</span><span class="block whitespace-nowrap">Create Something</span><span class="block whitespace-nowrap">Extraordinary</span></h2></div></div><a href="mailto:254807833@qq.com" aria-label="联系郭济海" class="group absolute inset-x-6 bottom-[4vh] z-0 block h-[39vh] pointer-events-auto lg:inset-x-16" style="transform-origin:center bottom;opacity:0;transform:translateY(34px) scaleY(0.18)"><svg aria-hidden="true" viewBox="0 0 1600 260" preserveAspectRatio="none" class="w-full h-full overflow-visible text-[var(--label-1)]"><defs><clipPath id="contact-line-word-clip"><text x="0" y="248" font-family="tiktok, sans-serif" font-size="260" font-weight="700" textLength="1600" lengthAdjust="spacingAndGlyphs">CONTACT</text></clipPath></defs><g clip-path="url(#contact-line-word-clip)" class="opacity-55 transition-opacity duration-500 group-hover:opacity-85"><line x1="0" x2="1600" y1="18" y2="18" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="0" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="31" y2="31" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="7" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="44" y2="44" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="14" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="57" y2="57" stroke="currentColor" stroke-width="1.45" stroke-dasharray="510 24 275 18" stroke-dashoffset="21" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="70" y2="70" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="28" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="83" y2="83" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="35" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="96" y2="96" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="42" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="109" y2="109" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="49" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="122" y2="122" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="56" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="135" y2="135" stroke="currentColor" stroke-width="1.45" stroke-dasharray="510 24 275 18" stroke-dashoffset="63" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="148" y2="148" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="70" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="161" y2="161" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="77" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="174" y2="174" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="84" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="187" y2="187" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="91" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="200" y2="200" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="98" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="213" y2="213" stroke="currentColor" stroke-width="1.45" stroke-dasharray="510 24 275 18" stroke-dashoffset="105" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="226" y2="226" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="112" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="239" y2="239" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="119" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line><line x1="0" x2="1600" y1="252" y2="252" stroke="currentColor" stroke-width="1.45" stroke-dashoffset="126" style="transition:transform 120ms cubic-bezier(0.22, 1, 0.36, 1)"></line></g></svg></a></div></footer><div aria-hidden="true" class="fixed inset-0 z-[29] flex flex-col pointer-events-none"><div class="min-h-0 flex-1 bg-b1" style="transform:scaleY(0);transform-origin:center bottom;will-change:transform"></div><div class="min-h-0 flex-1 bg-b1" style="transform:scaleY(0);transform-origin:center bottom;will-change:transform"></div><div class="min-h-0 flex-1 bg-b1" style="transform:scaleY(0);transform-origin:center bottom;will-change:transform"></div><div class="min-h-0 flex-1 bg-b1" style="transform:scaleY(0);transform-origin:center bottom;will-change:transform"></div><div class="min-h-0 flex-1 bg-b1" style="transform:scaleY(0);transform-origin:center bottom;will-change:transform"></div></div><div class="gradual-blur gradual-blur-page " style="position:fixed;pointer-events:none;opacity:0;transition:opacity 0.35s ease-out;z-index:40;height:5rem;width:100%;bottom:0;left:0;right:0"><div class="gradual-blur-inner" style="position:relative;width:100%;height:100%"><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 0%, black 12.5%, black 25%, transparent 37.5%);-webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 12.5%, black 25%, transparent 37.5%);backdrop-filter:blur(0.070rem);-webkit-backdrop-filter:blur(0.070rem);opacity:0.9"></div><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 12.5%, black 25%, black 37.5%, transparent 50%);-webkit-mask-image:linear-gradient(to bottom, transparent 12.5%, black 25%, black 37.5%, transparent 50%);backdrop-filter:blur(0.096rem);-webkit-backdrop-filter:blur(0.096rem);opacity:0.9"></div><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 25%, black 37.5%, black 50%, transparent 62.5%);-webkit-mask-image:linear-gradient(to bottom, transparent 25%, black 37.5%, black 50%, transparent 62.5%);backdrop-filter:blur(0.150rem);-webkit-backdrop-filter:blur(0.150rem);opacity:0.9"></div><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 37.5%, black 50%, black 62.5%, transparent 75%);-webkit-mask-image:linear-gradient(to bottom, transparent 37.5%, black 50%, black 62.5%, transparent 75%);backdrop-filter:blur(0.250rem);-webkit-backdrop-filter:blur(0.250rem);opacity:0.9"></div><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 50%, black 62.5%, black 75%, transparent 87.5%);-webkit-mask-image:linear-gradient(to bottom, transparent 50%, black 62.5%, black 75%, transparent 87.5%);backdrop-filter:blur(0.416rem);-webkit-backdrop-filter:blur(0.416rem);opacity:0.9"></div><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 62.5%, black 75%, black 87.5%, transparent 100%);-webkit-mask-image:linear-gradient(to bottom, transparent 62.5%, black 75%, black 87.5%, transparent 100%);backdrop-filter:blur(0.648rem);-webkit-backdrop-filter:blur(0.648rem);opacity:0.9"></div><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 75%, black 87.5%, black 100%);-webkit-mask-image:linear-gradient(to bottom, transparent 75%, black 87.5%, black 100%);backdrop-filter:blur(0.888rem);-webkit-backdrop-filter:blur(0.888rem);opacity:0.9"></div><div style="position:absolute;inset:0;mask-image:linear-gradient(to bottom, transparent 87.5%, black 100%);-webkit-mask-image:linear-gradient(to bottom, transparent 87.5%, black 100%);backdrop-filter:blur(1.000rem);-webkit-backdrop-filter:blur(1.000rem);opacity:0.9"></div></div></div><div aria-hidden="true" class="fixed inset-0 pointer-events-none" style="z-index:-1;opacity:0;will-change:opacity;background-image:radial-gradient(rgba(255,255,255,0.9) 1.3px, transparent 1.7px);background-size:6px 6px;mix-blend-mode:soft-light"></div><canvas aria-hidden="true" class="fixed inset-0 pointer-events-none" style="z-index:14;mix-blend-mode:normal"></canvas><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$--><!--$--><!--/$--><script src="/guojihai.github.io/_next/static/chunks/0k-ck4py_oqx6.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n3:I[10569,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"default\"]\n4:I[39756,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"default\"]\n5:I[37457,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"default\"]\n6:I[47257,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"ClientPageRoot\"]\n7:I[52683,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\",\"/guojihai.github.io/_next/static/chunks/31w90vyaxe_4q.js\",\"/guojihai.github.io/_next/static/chunks/0_jd8xb21751d.js\",\"/guojihai.github.io/_next/static/chunks/3v38rxbik4q2p.js\",\"/guojihai.github.io/_next/static/chunks/44yc3rrrxvbae.js\",\"/guojihai.github.io/_next/static/chunks/15nh0e2k5nwqq.js\"],\"default\"]\na:I[97367,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"OutletBoundary\"]\nb:\"$Sreact.suspense\"\nd:I[97367,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"ViewportBoundary\"]\nf:I[97367,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"MetadataBoundary\"]\n11:I[68027,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"default\",1]\n:HL[\"/guojihai.github.io/_next/static/chunks/2yz5dcjgcyn54.css\",\"style\"]\n:HL[\"/guojihai.github.io/_next/static/chunks/1tmnbd_m4q4gk.css\",\"style\"]\n2:T4ae,\n  (() =\u003e {\n    const root = document.documentElement;\n\n    try {\n      const savedTheme = localStorage.getItem(\"hero-theme-override\");\n      const isDark = savedTheme === \"dark\"\n        ? true\n        : savedTheme === \"light\"\n          ? false\n          : new Date().getHours() \u003e= 18 || new Date().getHours() \u003c 8;\n\n      root.classList.toggle(\"dark\", isDark);\n      root.classList.toggle(\"light\", !isDark);\n    } catch {\n      root.classList.add(\"light\");\n    }\n\n    const syncBackdrop = () =\u003e {\n      let progress = 0;\n\n      try {\n        const savedProgress = Number.parseFloat(\n          sessionStorage.getItem(\"reggy-backdrop-progress\") || \"0\",\n        );\n        if (Number.isFinite(savedProgress)) progress = savedProgress;\n      } catch {}\n\n      if (window.scrollY \u003e 0 \u0026\u0026 window.innerHeight \u003e 0) {\n        const raw = Math.min(\n          1,\n          Math.max(0, (window.scrollY / window.innerHeight - 0.18) / 0.6),\n        );\n        progress = raw * raw * (3 - 2 * raw);\n      }\n\n      root.style.setProperty(\n        \"--initial-backdrop-opacity\",\n        String(Math.min(1, Math.max(0, progress))),\n      );\n    };\n\n    syncBackdrop();\n    requestAnimationFrame(syncBackdrop);\n  })();\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",16],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/guojihai.github.io/_next/static/chunks/2yz5dcjgcyn54.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[[\"$\",\"head\",null,{\"children\":[\"$\",\"script\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"$2\"}}]}],[\"$\",\"body\",null,{\"children\":[[\"$\",\"$L3\",null,{}],[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L6\",null,{\"Component\":\"$7\",\"serverProvidedParams\":{\"searchParams\":{},\"params\":{},\"promises\":[\"$@8\",\"$@9\"]}}],[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/guojihai.github.io/_next/static/chunks/1tmnbd_m4q4gk.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/guojihai.github.io/_next/static/chunks/31w90vyaxe_4q.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/guojihai.github.io/_next/static/chunks/0_jd8xb21751d.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/guojihai.github.io/_next/static/chunks/3v38rxbik4q2p.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/guojihai.github.io/_next/static/chunks/44yc3rrrxvbae.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-4\",{\"src\":\"/guojihai.github.io/_next/static/chunks/15nh0e2k5nwqq.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$La\",null,{\"children\":[\"$\",\"$b\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@c\"}]}]]}],{},null,false,null]},null,false,null],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$Ld\",null,{\"children\":\"$Le\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Lf\",null,{\"children\":[\"$\",\"$b\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L10\"}]}]}],null]}],false]],\"m\":\"$undefined\",\"G\":[\"$11\",[\"$L12\"]],\"S\":true,\"h\":null,\"s\":\"$undefined\",\"l\":\"$undefined\",\"p\":\"$undefined\",\"d\":\"$undefined\",\"b\":\"9ZbnyagmPnWgfEHYRmoSu\"}\n"])</script><script>self.__next_f.push([1,"12:[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/guojihai.github.io/_next/static/chunks/2yz5dcjgcyn54.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]\n8:{}\n9:\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\"\n"])</script><script>self.__next_f.push([1,"e:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"13:I[27201,[\"/guojihai.github.io/_next/static/chunks/2iut1iztrt13t.js\",\"/guojihai.github.io/_next/static/chunks/14mrh2-p_w84d.js\"],\"IconMark\"]\nc:null\n10:[[\"$\",\"title\",\"0\",{\"children\":\"郭济海 · 资深 UI/UX 体验设计师\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"10 年以上 UI/UX 设计经验，专注设计系统、AI 产品体验与从 0 到 1 的产品设计。\"}],[\"$\",\"meta\",\"2\",{\"name\":\"robots\",\"content\":\"index, follow, noimageindex\"}],[\"$\",\"link\",\"3\",{\"rel\":\"icon\",\"href\":\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3C%2Fsvg%3E\"}],[\"$\",\"$L13\",\"4\",{}]]\n"])</script></body></html>

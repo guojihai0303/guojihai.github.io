@@ -1,0 +1,27 @@
+{
+  "source_sha256": "cf7db82bfcde53d1df62aa89952f654349a0dd1067a780e97c00676a5ffef2d9",
+  "source_width": 2000,
+  "source_height": 14638,
+  "tiles": [
+    {
+      "src": "/guojihai.github.io/portfolio/electricity-ai/board-01.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/electricity-ai/board-02.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/electricity-ai/board-03.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/electricity-ai/board-04.webp",
+      "width": 1600,
+      "height": 2110
+    }
+  ]
+}

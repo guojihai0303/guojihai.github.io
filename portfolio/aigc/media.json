@@ -1,0 +1,12 @@
+{
+  "source_sha256": "c6cbf503ad8e48d12baa995ea98d2fd19588e5ca9e44939660454cc057cbc1c6",
+  "source_width": 2000,
+  "source_height": 3378,
+  "tiles": [
+    {
+      "src": "/guojihai.github.io/portfolio/aigc/board-01.webp",
+      "width": 1600,
+      "height": 2702
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "source_sha256": "410d446e3c552e926a5fffae8f7a3d3acc32783da83affc8ea3c23a3ee955deb",
+  "source_width": 2000,
+  "source_height": 24520,
+  "tiles": [
+    {
+      "src": "/guojihai.github.io/portfolio/58-community/board-01.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/58-community/board-02.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/58-community/board-03.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/58-community/board-04.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/58-community/board-05.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/58-community/board-06.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/58-community/board-07.webp",
+      "width": 1600,
+      "height": 416
+    }
+  ]
+}

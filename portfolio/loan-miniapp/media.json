@@ -1,0 +1,22 @@
+{
+  "source_sha256": "08bcf615525bb9a9acf74b4f89b1066adda4091feeb29c59f5ab015894b308e1",
+  "source_width": 2000,
+  "source_height": 10187,
+  "tiles": [
+    {
+      "src": "/guojihai.github.io/portfolio/loan-miniapp/board-01.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/loan-miniapp/board-02.webp",
+      "width": 1600,
+      "height": 3200
+    },
+    {
+      "src": "/guojihai.github.io/portfolio/loan-miniapp/board-03.webp",
+      "width": 1600,
+      "height": 1750
+    }
+  ]
+}
