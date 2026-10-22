@@ -31,13 +31,6 @@ jobs:
       - name: Import portfolio into GitHub on first deployment
         run: |
           python3 .github/gjh/bootstrap.py --manifest .github/gjh/assets.json --output site --source-url https://gjh-recreation-gh-20261021.balmybull256.chatgpt.site
-          git add site
-          if ! git diff --cached --quiet; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'Import personalized portfolio assets [skip ci]'
-            git push origin HEAD:main
-          fi
 
       - name: Configure Pages
         id: pages
@@ -47,6 +40,17 @@ jobs:
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: python3 .github/gjh/export.py --source site --output _site --base-path "$PAGES_BASE_PATH"
+
+      - name: Keep the existing Pages publishing source in sync
+        run: |
+          python3 .github/gjh/sync.py --source _site
+          git add site
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update GitHub Pages portfolio files [skip ci]'
+            git push origin HEAD:main
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
