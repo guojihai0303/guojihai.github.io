@@ -36,6 +36,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      - name: Enable the mobile portfolio scroll scene
+        run: python3 .github/gjh/mobile-motion.py --source site --manifest .github/gjh/assets.json
+
       - name: Export site for the Pages directory
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
@@ -44,7 +47,7 @@ jobs:
       - name: Keep the existing Pages publishing source in sync
         run: |
           python3 .github/gjh/sync.py --source _site
-          git add site
+          git add site .github/gjh/assets.json
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
