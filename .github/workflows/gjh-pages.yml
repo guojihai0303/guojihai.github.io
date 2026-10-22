@@ -1,0 +1,58 @@
+name: Publish GJH portfolio
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/gjh/**'
+      - '.github/workflows/gjh-pages.yml'
+      - 'site/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: gjh-portfolio-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Import portfolio into GitHub on first deployment
+        run: |
+          if [ ! -f site/index.html ]; then
+            python3 .github/gjh/bootstrap.py --manifest .github/gjh/assets.json --output site --source-url https://gjh-recreation-gh-20261021.balmybull256.chatgpt.site
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add site
+            git commit -m 'Import personalized portfolio assets [skip ci]'
+            git push origin HEAD:main
+          fi
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Export site for the Pages directory
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: python3 .github/gjh/export.py --source site --output _site --base-path "$PAGES_BASE_PATH"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Publish Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
