@@ -30,11 +30,11 @@ jobs:
 
       - name: Import portfolio into GitHub on first deployment
         run: |
-          if [ ! -f site/index.html ]; then
-            python3 .github/gjh/bootstrap.py --manifest .github/gjh/assets.json --output site --source-url https://gjh-recreation-gh-20261021.balmybull256.chatgpt.site
+          python3 .github/gjh/bootstrap.py --manifest .github/gjh/assets.json --output site --source-url https://gjh-recreation-gh-20261021.balmybull256.chatgpt.site
+          git add site
+          if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add site
             git commit -m 'Import personalized portfolio assets [skip ci]'
             git push origin HEAD:main
           fi
